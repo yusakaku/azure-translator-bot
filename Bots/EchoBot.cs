@@ -17,9 +17,9 @@ namespace Microsoft.Bot.Builder.EchoBot
     public class EchoBot : ActivityHandler
     {
         // Add Translator Text API configuration
-        private readonly string translatorEndpoint = "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&to=ja";
-        private readonly string translatorSubscriptionKey = "fc8fb73ee7954d6eb6ee5c22174d91b6";
-        private readonly string translatorSubscriptionRegion = "eastasia";
+        private readonly string translatorEndpoint = "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&to=en";
+        private readonly string translatorSubscriptionKey = "Your Key";
+        private readonly string translatorSubscriptionRegion = "Your region";
 
 
         protected override async Task OnMessageActivityAsync(ITurnContext<IMessageActivity> turnContext, CancellationToken cancellationToken)
@@ -61,7 +61,7 @@ namespace Microsoft.Bot.Builder.EchoBot
             {
                 if (member.Id != turnContext.Activity.Recipient.Id)
                 {
-                    await turnContext.SendActivityAsync(MessageFactory.Text($"外国語チョットワカル Bot だよ！"), cancellationToken);
+                    await turnContext.SendActivityAsync(MessageFactory.Text($"Please enter the words/sentence you want to translate"), cancellationToken);
                 }
             }
         }
